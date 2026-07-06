@@ -1,0 +1,45 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Кристалл регенерации - инструкция</title><style>
+:root{--bg:#0d1713;--card:#f7f3df;--green:#5f9d38;--dark:#263a2b;--cyan:#5ddbd2;--gold:#f2c94c;--red:#c54d45}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(#bce8ff 0 210px,#72aa4e 210px 250px,#67472c 250px);font:17px/1.55 Arial,sans-serif;color:#172019}header{max-width:1100px;margin:auto;padding:40px 18px 28px;color:white;text-shadow:2px 2px #223}header h1{font-size:clamp(34px,6vw,64px);margin:0}header p{font-size:20px;max-width:780px}main{max-width:1100px;margin:auto;padding:0 18px 80px}section{background:var(--card);border:5px solid var(--dark);box-shadow:8px 8px rgba(0,0,0,.22);margin:22px 0;padding:24px}h2{margin:-24px -24px 20px;padding:16px 20px;background:var(--green);color:white;border-bottom:5px solid var(--dark)}h3{margin-bottom:5px}code{background:#172019;color:#dcffd6;padding:2px 7px;border-radius:3px;word-break:break-word}li{margin:8px 0}a{color:#156c67;font-weight:bold}.lead{font-size:21px}.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:20px 0}.flow span{background:#fff;border:4px solid var(--dark);padding:10px 14px;font-weight:bold}.screen,.check,.warn{padding:14px 16px;margin:15px 0;border-left:8px solid}.screen{background:#e8f6ff;border-color:#4e96bb}.check{background:#eaffdd;border-color:#579a38}.warn{background:#ffe3df;border-color:var(--red)}.files{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.files div{background:white;border:4px solid #52624e;padding:14px}.files code,.files small{display:block;margin-top:7px}footer{background:var(--dark);color:white;padding:24px;text-align:center}@media(max-width:700px){.files{grid-template-columns:1fr}}
+</style></head><body><header><h1>Кристалл регенерации</h1><p>Полный маршрут от скачанного проекта до работающего блока в TLauncher</p></header><main><section><h2>Что вы скачали</h2>
+<p class='lead'><b>Этот ZIP пока не является готовым модом.</b> В нём лежат Java-код, модель, текстура и настройки сборки.</p>
+<div class='flow'><span>Проект ZIP</span><b>→</b><span>GitHub Actions</span><b>→</b><span>готовый JAR</span><b>→</b><span>TLauncher</span></div>
+<p>TLauncher не открывает папку с исходниками. Он запускает уже собранный файл <code>.jar</code>.</p>
+</section><section><h2>1. Распакуйте архив</h2>
+<ol><li>Нажмите по ZIP правой кнопкой мыши.</li><li>Выберите <b>Извлечь всё</b>.</li><li>Откройте распакованную папку.</li></ol>
+<div class='screen'><b>На экране должны быть:</b><br><code>.github</code>, <code>src</code>, <code>blockbench_source</code>, <code>build.gradle</code>, <code>gradle.properties</code>.</div>
+<p class='warn'>Не загружайте ZIP в GitHub одним файлом. Нужны файлы и папки изнутри.</p>
+</section><section><h2>2. Создайте репозиторий GitHub</h2>
+<ol><li>Откройте <a href='https://github.com/' target='_blank'>GitHub</a> и войдите.</li><li>Нажмите <b>New repository</b>.</li><li>Название: <code>regeneration-crystal-mod</code>.</li><li>Выберите Public или Private.</li><li>Не добавляйте README и .gitignore.</li><li>Нажмите <b>Create repository</b>.</li></ol>
+<div class='screen'><b>Что должно появиться:</b> пустая страница нового репозитория.</div>
+</section><section><h2>3. Загрузите проект</h2>
+<ol><li>Нажмите <b>uploading an existing file</b> или <b>Add file → Upload files</b>.</li><li>Перетащите всё содержимое распакованной папки.</li><li>Дождитесь окончания загрузки.</li><li>Нажмите <b>Commit changes</b>.</li></ol>
+<div class='check'><b>Обязательная проверка:</b> откройте <code>.github → workflows</code>. Там должен быть <code>build-mod.yml</code>.</div>
+</section><section><h2>4. Получите готовый JAR</h2>
+<ol><li>Откройте вкладку <b>Actions</b>.</li><li>Выберите <b>Build Regeneration Crystal Mod</b>.</li><li>Если запуск не начался автоматически, нажмите <b>Run workflow</b>.</li><li>Дождитесь зелёной галочки.</li><li>Откройте готовую сборку и прокрутите вниз до <b>Artifacts</b>.</li><li>Скачайте <b>regeneration-crystal-mod-jar</b>.</li><li>Распакуйте скачанный ZIP.</li></ol>
+<div class='screen'><b>Итог:</b> файл примерно <code>regeneration_crystal-1.0.0.jar</code>.</div>
+<p class='warn'>Если галочка красная, откройте шаг Build mod и сохраните текст ошибки.</p>
+</section><section><h2>5. Создайте сборку TLauncher</h2>
+<ol><li>Запустите TLauncher.</li><li>Нажмите <b>TL MODS</b> внизу справа.</li><li>Нажмите <b>Create</b>.</li><li>Название: <code>Кристалл регенерации</code>.</li><li>Загрузчик: <b>NeoForge</b>.</li><li>Minecraft: <b>1.21.1</b>.</li><li>Версию NeoForge оставьте автоматически выбранной для 1.21.1.</li><li>Нажмите <b>Create</b>.</li></ol>
+<div class='check'>Нужна связка: <b>Minecraft 1.21.1 + NeoForge 21.1.x</b>.</div>
+</section><section><h2>6. Установите JAR в TLauncher</h2>
+<h3>Самый понятный способ</h3><ol><li>В TL MODS выберите созданную сборку.</li><li>Нажмите кнопку с гаечным ключом и отвёрткой.</li><li>Выберите <b>Manual installation / Ручная установка</b>.</li><li>Выберите файл <code>regeneration_crystal-1.0.0.jar</code>.</li><li>Нажмите <b>Install / Установить</b>.</li></ol>
+<h3>Запасной способ</h3><ol><li>Откройте папку выбранной сборки.</li><li>Откройте или создайте папку <code>mods</code>.</li><li>Скопируйте туда JAR.</li></ol>
+<p class='warn'>Не выбирайте исходный ZIP, .bbmodel или PNG. Нужен только JAR.</p>
+</section><section><h2>7. Проверьте мод в игре</h2>
+<ol><li>Выберите сборку <b>Кристалл регенерации</b>.</li><li>Нажмите <b>Войти в игру</b>.</li><li>В главном меню откройте список модов и найдите <b>Regeneration Crystal</b>.</li><li>Создайте творческий мир.</li><li>Найдите <b>Кристалл регенерации</b> через поиск инвентаря.</li><li>Поставьте его и нажмите правой кнопкой мыши.</li></ol>
+<div class='screen'><b>Ожидаемый результат:</b> кристалл светится и выдаёт регенерацию игрокам в радиусе 5 блоков на 10 секунд.</div>
+</section><section><h2>Что показывать на уроке</h2>
+<div class='files'>
+<div><b>Blockbench-модель</b><code>blockbench_source/regeneration_crystal.bbmodel</code><small>Авторская форма кристалла.</small></div>
+<div><b>Текстура</b><code>.../textures/block/regeneration_crystal.png</code><small>Внешний вид модели.</small></div>
+<div><b>Главный класс</b><code>RegenerationCrystalMod.java</code><small>Точка входа и подключение частей мода.</small></div>
+<div><b>Регистрация блока</b><code>ModBlocks.java</code><small>Minecraft узнаёт о новом блоке.</small></div>
+<div><b>Регистрация предмета</b><code>ModItems.java</code><small>Блок появляется в инвентаре.</small></div>
+<div><b>Поведение</b><code>CrystalEvents.java</code><small>Нажатие, радиус и регенерация.</small></div>
+<div><b>Рецепт</b><code>recipe/regeneration_crystal.json</code><small>Схема крафта.</small></div>
+<div><b>Русский язык</b><code>lang/ru_ru.json</code><small>Название в интерфейсе игры.</small></div>
+</div>
+</section><section><h2>Если что-то не работает</h2>
+<ul><li><b>Нет Actions:</b> проверьте файл <code>.github/workflows/build-mod.yml</code>.</li><li><b>Красная сборка:</b> откройте шаг <code>Build mod</code> и сохраните ошибку.</li><li><b>Мод не виден:</b> проверьте 1.21.1, NeoForge и JAR в выбранной сборке.</li><li><b>Игра вылетает:</b> сохраните файл <code>logs/latest.log</code> из папки сборки.</li></ul>
+</section></main><footer>Запомните: проект ZIP → GitHub Actions → готовый JAR → TLauncher с NeoForge 1.21.1</footer></body></html>
